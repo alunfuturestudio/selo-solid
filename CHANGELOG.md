@@ -4,9 +4,15 @@ All notable changes to `selo-solid` are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+## [0.1.0] — 2026-04-29
+
 ### Added
 
 - **`isp/max-interface-members`** — last v1 rule from researchui#190. Walks `TSInterfaceDeclaration` and `TSTypeLiteral`; counts `TSPropertySignature` + `TSMethodSignature` per node. Default goal 10. Seal message points at split-by-client (Reader/Writer pattern). ([0fe413c](https://github.com/guilhermesilveira/selo-solid/commit/0fe413c))
+
+### Changed
+
+- **Peer dependency** — `@guilhermesilveira/selo` peer range moved from `^0.0.1` to `^0.1.0`. Required to pick up the count-rule ratchet fix and the arrived-state goal-clamp.
 
 ## [0.0.1] — Initial release
 
