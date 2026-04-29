@@ -1,6 +1,6 @@
 {
   "name": "selo-solid",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "selo rule pack: SOLID-alike rules (SRP file/function/params/depth/statements/complexity/class-methods, OCP no-type-discriminating-switch). For the linter, see @guilhermesilveira/selo.",
   "type": "module",
   "main": "./dist/index.js",
