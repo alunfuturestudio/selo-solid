@@ -13,6 +13,7 @@ A `selo` rule pack with SOLID-alike rules. Use with [`@guilhermesilveira/selo`](
 | `srp/max-statements-per-function` | threshold | `stmts/fn` | top-level statements per function |
 | `srp/max-cyclomatic-complexity` | threshold | `CC/fn` | McCabe cyclomatic complexity per function |
 | `srp/max-class-methods` | threshold | `methods` | `MethodDefinition` count per class |
+| `isp/max-interface-members` | threshold | `members` | `TSPropertySignature` + `TSMethodSignature` count per interface (and per `TSTypeLiteral`) |
 | `ocp/no-type-discriminating-switch` | count | `dispatches` | switch / if-else-if chains over a single discriminator (kind/type/__typename/tag) |
 
 Each rule's seal message names the unit value and the next refactor — never the bare "too many X."
@@ -40,6 +41,7 @@ export default {
     'srp/max-statements-per-function': { goal: 30 },
     'srp/max-cyclomatic-complexity':   { goal: 15 },
     'srp/max-class-methods':           { goal: 10 },
+    'isp/max-interface-members':       { goal: 10 },
     'ocp/no-type-discriminating-switch': {},
   },
 };
@@ -72,6 +74,7 @@ src/
   rules/srpMaxStatementsPerFunction.ts
   rules/srpMaxCyclomaticComplexity.ts
   rules/srpMaxClassMethods.ts
+  rules/ispMaxInterfaceMembers.ts
   rules/ocpNoTypeDiscriminatingSwitch.ts
 tests/
   helpers.ts                   fixtureFile() — parse + set parents
@@ -86,5 +89,4 @@ tests/
 
 ## What is *not* in this pack
 
-- `srp/no-identical-functions` and `srp/max-cognitive-complexity` rely on SonarJS's algorithms. They live in `selo-eslint-raiz` (the shim pack) where the wrapping mechanism handles them.
-- `isp/max-interface-members` is still on the open list.
+- `srp/no-identical-functions` and `srp/max-cognitive-complexity` rely on SonarJS's algorithms. They live in [`selo-eslint-raiz`](https://github.com/guilhermesilveira/selo-eslint-raiz) (the shim pack) where the wrapping mechanism handles them.
