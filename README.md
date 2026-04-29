@@ -87,6 +87,24 @@ tests/
 2. Add to `src/index.ts`'s `rules` map under its `meta.id`.
 3. Test under `tests/<name>.test.ts` using `fixtureFile()` to build a `SeloFile`.
 
+## Releasing
+
+Manual SemVer release flow. See [@guilhermesilveira/selo's release notes](https://github.com/guilhermesilveira/selo#releasing) for the engine-releases-first ordering — when `@guilhermesilveira/selo`'s contract changes, the engine ships first, then this pack bumps its peer range and follows.
+
+```sh
+# 1. Move [Unreleased] in CHANGELOG.md under a new
+#    `## [<version>] — YYYY-MM-DD` heading.
+# 2. If the engine bumped, update peerDependencies."@guilhermesilveira/selo"
+#    in package.json.
+# 3. npm version patch        # 0.0.1 → 0.0.2 (or `minor` / `major`)
+# 4. git push --follow-tags
+# 5. npm publish               # one-time `npm login` first
+```
+
+The `prepublishOnly` script gates publishing on a clean build + tests + lint, so a broken state can't ship.
+
+---
+
 ## What is *not* in this pack
 
 - `srp/no-identical-functions` and `srp/max-cognitive-complexity` rely on SonarJS's algorithms. They live in [`selo-eslint-raiz`](https://github.com/guilhermesilveira/selo-eslint-raiz) (the shim pack) where the wrapping mechanism handles them.
