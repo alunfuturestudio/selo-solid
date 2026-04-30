@@ -15,6 +15,7 @@ A `selo` rule pack with SOLID-alike rules. Use with [`@guilhermesilveira/selo`](
 | `srp/max-class-methods` | threshold | `methods` | `MethodDefinition` count per class |
 | `isp/max-interface-members` | threshold | `members` | `TSPropertySignature` + `TSMethodSignature` count per interface (and per `TSTypeLiteral`) |
 | `ocp/no-type-discriminating-switch` | count | `dispatches` | switch / if-else-if chains over a single discriminator (kind/type/__typename/tag) |
+| `ocp/no-instanceof-chain` | count | `dispatches` | if/else-if (or ternary) chains of `instanceof` checks against the same discriminator |
 
 Each rule's seal message names the unit value and the next refactor — never the bare "too many X."
 
@@ -43,6 +44,7 @@ export default {
     'srp/max-class-methods':           { goal: 10 },
     'isp/max-interface-members':       { goal: 10 },
     'ocp/no-type-discriminating-switch': {},
+    'ocp/no-instanceof-chain':         {},
   },
 };
 ```
@@ -51,11 +53,14 @@ Then `npx selo check` (see the [selo README](https://github.com/guilhermesilveir
 
 ## OCP exemptions
 
-The OCP rule sometimes fires on legacy code you can't refactor immediately. Exempt those files at the project level:
+The OCP rules sometimes fire on legacy code you can't refactor immediately. Exempt those files at the project level — the same pattern works for `ocp/no-type-discriminating-switch` and `ocp/no-instanceof-chain`:
 
 ```js
 'ocp/no-type-discriminating-switch': {
   exempt: ['lib/legacy-dispatcher.ts', 'ui/old/Page.tsx'],
+},
+'ocp/no-instanceof-chain': {
+  exempt: ['lib/legacy-visitor.ts'],
 },
 ```
 
@@ -76,6 +81,7 @@ src/
   rules/srpMaxClassMethods.ts
   rules/ispMaxInterfaceMembers.ts
   rules/ocpNoTypeDiscriminatingSwitch.ts
+  rules/ocpNoInstanceofChain.ts
 tests/
   helpers.ts                   fixtureFile() — parse + set parents
   *.test.ts                    one focused test per rule

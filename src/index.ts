@@ -1,5 +1,6 @@
 import type { SeloRulePack } from '@guilhermesilveira/selo';
 import { ispMaxInterfaceMembers } from './rules/ispMaxInterfaceMembers.js';
+import { ocpNoInstanceofChain } from './rules/ocpNoInstanceofChain.js';
 import { ocpNoTypeDiscriminatingSwitch } from './rules/ocpNoTypeDiscriminatingSwitch.js';
 import { srpMaxClassMethods } from './rules/srpMaxClassMethods.js';
 import { srpMaxCyclomaticComplexity } from './rules/srpMaxCyclomaticComplexity.js';
@@ -22,6 +23,7 @@ export const seloSolid: SeloRulePack = {
     'srp/max-class-methods': srpMaxClassMethods,
     'isp/max-interface-members': ispMaxInterfaceMembers,
     'ocp/no-type-discriminating-switch': ocpNoTypeDiscriminatingSwitch,
+    'ocp/no-instanceof-chain': ocpNoInstanceofChain,
   },
 };
 
@@ -30,6 +32,7 @@ export default seloSolid;
 // Individual rule exports for users who want à la carte composition.
 export {
   ispMaxInterfaceMembers,
+  ocpNoInstanceofChain,
   ocpNoTypeDiscriminatingSwitch,
   srpMaxClassMethods,
   srpMaxCyclomaticComplexity,

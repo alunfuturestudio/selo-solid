@@ -4,6 +4,10 @@ All notable changes to `selo-solid` are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+### Added
+
+- **`ocp/no-instanceof-chain`** — sibling to `ocp/no-type-discriminating-switch`. Walks `IfStatement` and `ConditionalExpression` chains; flags ladders of `instanceof` checks against the same discriminator (compared structurally — identifier, `this`, or member-access path). Single guards do not fire. Default `minBranches: 2`. Seal points at polymorphism / visitor / handler-registry as the open-extension refactor.
+
 ## [0.1.0] — 2026-04-29
 
 ### Added
