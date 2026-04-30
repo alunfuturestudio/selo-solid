@@ -4,6 +4,10 @@ All notable changes to `selo-solid` are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+### Added
+
+- **`isp/max-public-class-surface`** — caps the public surface (methods + fields) of a class, the part consumers actually depend on. Distinct from `srp/max-class-methods` (which counts every method as an internal-complexity signal): a class can be SRP-clean but ISP-fat. Counts public `MethodDefinition`, public `PropertyDefinition`, and `public` `TSParameterProperty` on the constructor; getter/setter pairs collapse to one; statics are included; `#hashName` and explicit `private`/`protected` are skipped. Default goal 10. Seal points at split-by-client (Reader/Writer / role-interface), same direction as `isp/max-interface-members`.
+
 ## [0.1.0] — 2026-04-29
 
 ### Added

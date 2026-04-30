@@ -14,6 +14,7 @@ A `selo` rule pack with SOLID-alike rules. Use with [`@guilhermesilveira/selo`](
 | `srp/max-cyclomatic-complexity` | threshold | `CC/fn` | McCabe cyclomatic complexity per function |
 | `srp/max-class-methods` | threshold | `methods` | `MethodDefinition` count per class |
 | `isp/max-interface-members` | threshold | `members` | `TSPropertySignature` + `TSMethodSignature` count per interface (and per `TSTypeLiteral`) |
+| `isp/max-public-class-surface` | threshold | `members` | public methods + public fields per class (incl. public parameter properties; getter/setter pair counts once) |
 | `ocp/no-type-discriminating-switch` | count | `dispatches` | switch / if-else-if chains over a single discriminator (kind/type/__typename/tag) |
 
 Each rule's seal message names the unit value and the next refactor — never the bare "too many X."
@@ -42,6 +43,7 @@ export default {
     'srp/max-cyclomatic-complexity':   { goal: 15 },
     'srp/max-class-methods':           { goal: 10 },
     'isp/max-interface-members':       { goal: 10 },
+    'isp/max-public-class-surface':    { goal: 10 },
     'ocp/no-type-discriminating-switch': {},
   },
 };
@@ -75,6 +77,7 @@ src/
   rules/srpMaxCyclomaticComplexity.ts
   rules/srpMaxClassMethods.ts
   rules/ispMaxInterfaceMembers.ts
+  rules/ispMaxPublicClassSurface.ts
   rules/ocpNoTypeDiscriminatingSwitch.ts
 tests/
   helpers.ts                   fixtureFile() — parse + set parents
