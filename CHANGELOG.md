@@ -4,6 +4,10 @@ All notable changes to `selo-solid` are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+### Added
+
+- **`srp/max-imports-per-file`** — caps distinct import sources per file. Counts `ImportDeclaration` (incl. `import type`), `TSImportEqualsDeclaration`, module-scope dynamic `import()` (`ImportExpression`), and module-scope `require()`. Skips descent into function bodies so lazy/runtime imports do not count. Default goal **15**. Seal points at facade extraction or domain split, not "import less."
+
 ## [0.1.0] — 2026-04-29
 
 ### Added

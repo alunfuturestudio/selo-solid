@@ -8,6 +8,7 @@ A `selo` rule pack with SOLID-alike rules. Use with [`@guilhermesilveira/selo`](
 |---|---|---|---|
 | `srp/max-file-lines` | threshold | `lines` | source lines per file |
 | `srp/max-function-lines` | threshold | `lines/fn` | source lines per function |
+| `srp/max-imports-per-file` | threshold | `imports` | top-level `ImportDeclaration` / `ImportEqualsDeclaration` / module-scope `import()` / `require()` per file |
 | `srp/max-params` | threshold | `params/fn` | parameters per function |
 | `srp/max-depth` | threshold | `depth/fn` | max nesting depth per function |
 | `srp/max-statements-per-function` | threshold | `stmts/fn` | top-level statements per function |
@@ -36,6 +37,7 @@ export default {
   rules: {
     'srp/max-file-lines':              { goal: 800 },
     'srp/max-function-lines':          { goal: 80 },
+    'srp/max-imports-per-file':        { goal: 15 },
     'srp/max-params':                  { goal: 4 },
     'srp/max-depth':                   { goal: 4 },
     'srp/max-statements-per-function': { goal: 30 },
@@ -69,6 +71,7 @@ src/
   lib/walk.ts                  AST walker, function-name lookup, FN_TYPES
   rules/srpMaxFileLines.ts
   rules/srpMaxFunctionLines.ts
+  rules/srpMaxImportsPerFile.ts
   rules/srpMaxParams.ts
   rules/srpMaxDepth.ts
   rules/srpMaxStatementsPerFunction.ts

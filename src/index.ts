@@ -6,6 +6,7 @@ import { srpMaxCyclomaticComplexity } from './rules/srpMaxCyclomaticComplexity.j
 import { srpMaxDepth } from './rules/srpMaxDepth.js';
 import { srpMaxFileLines } from './rules/srpMaxFileLines.js';
 import { srpMaxFunctionLines } from './rules/srpMaxFunctionLines.js';
+import { srpMaxImportsPerFile } from './rules/srpMaxImportsPerFile.js';
 import { srpMaxParams } from './rules/srpMaxParams.js';
 import { srpMaxStatementsPerFunction } from './rules/srpMaxStatementsPerFunction.js';
 
@@ -15,6 +16,7 @@ export const seloSolid: SeloRulePack = {
   rules: {
     'srp/max-file-lines': srpMaxFileLines,
     'srp/max-function-lines': srpMaxFunctionLines,
+    'srp/max-imports-per-file': srpMaxImportsPerFile,
     'srp/max-params': srpMaxParams,
     'srp/max-depth': srpMaxDepth,
     'srp/max-statements-per-function': srpMaxStatementsPerFunction,
@@ -36,6 +38,7 @@ export {
   srpMaxDepth,
   srpMaxFileLines,
   srpMaxFunctionLines,
+  srpMaxImportsPerFile,
   srpMaxParams,
   srpMaxStatementsPerFunction,
 };
