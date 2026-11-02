@@ -11,7 +11,7 @@ import { srpMaxStatementsPerFunction } from './rules/srpMaxStatementsPerFunction
 
 export const seloSolid: SeloRulePack = {
   name: 'selo-solid',
-  version: '0.0.1',
+  version: '0.2.0',
   rules: {
     'srp/max-file-lines': srpMaxFileLines,
     'srp/max-function-lines': srpMaxFunctionLines,

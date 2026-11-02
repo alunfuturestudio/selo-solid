@@ -1,6 +1,6 @@
 {
   "name": "selo-solid",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "selo rule pack: SOLID-alike rules (SRP file/function/params/depth/statements/complexity/class-methods, OCP no-type-discriminating-switch). For the linter, see @guilhermesilveira/selo.",
   "type": "module",
   "main": "./dist/index.js",
@@ -23,14 +23,14 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "peerDependencies": {
-    "@guilhermesilveira/selo": "^0.1.0"
+    "@guilhermesilveira/selo": "^0.1.0 || ^0.2.0"
   },
   "dependencies": {
     "@typescript-eslint/parser": "^8.59.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
-    "@guilhermesilveira/selo": "github:guilhermesilveira/selo",
+    "@guilhermesilveira/selo": "git+https://github.com/alunfuturestudio/selo.git#b003ee2e054810a76345eee90577aa05a8a31757",
     "@types/node": "^22.7.0",
     "eslint": "^9.39.4",
     "typescript": "^5.6.0",
@@ -39,5 +39,9 @@
   },
   "engines": {
     "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alunfuturestudio/selo-solid.git"
   }
 }
