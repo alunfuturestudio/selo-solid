@@ -1,5 +1,5 @@
 /**
- * Tiny AST walker. Visits every object node in the tree (including arrays).
+ * Tiny AST walker. Visits structural AST nodes (including arrays), excluding lexical metadata.
  * No type knowledge — rules narrow nodes by inspecting `node.type`.
  */
 export function walkAst(node: unknown, visit: (n: unknown) => void): void {
@@ -27,7 +27,7 @@ export function walkAstSkip(
   visit(node);
   const obj = node as Record<string, unknown>;
   for (const k of Object.keys(obj)) {
-    if (k === 'parent' || k === 'loc' || k === 'range') continue;
+    if (k === 'parent' || k === 'loc' || k === 'range' || k === 'tokens' || k === 'comments') continue;
     walkAstSkip(obj[k], visit, skipDescent);
   }
 }

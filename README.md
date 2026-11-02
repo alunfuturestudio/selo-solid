@@ -81,6 +81,13 @@ tests/
   *.test.ts                    one focused test per rule
 ```
 
+## AST traversal
+
+Structural walks skip `parent`, locations, ranges, tokens and comments. Lexical
+metadata cannot contribute SOLID measurements and may be lazy in the native
+engine backend. This preserves structural traversal order while avoiding token
+materialization and repeated metadata visits.
+
 ## Adding a rule
 
 1. New file under `src/rules/` exporting a `SeloRule` object. Use `walkAst`/`walkAstSkip` from `lib/walk.js`. Skip descent at nested function nodes if the measurement is per-function.
