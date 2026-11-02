@@ -4,6 +4,10 @@ All notable changes to `selo-solid` are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+### Changed
+
+- Skip token/comment metadata during structural AST walks, preserving SOLID measurements while avoiding lazy lexical materialization in the native engine.
+
 ## [0.1.0] — 2026-04-29
 
 ### Added
